@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Posts</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>My Posts</h1>
+    {% for post in posts %}
+    <div style="border:1px solid black; width:300px; height:300px; display:inline-block">{{post.content}}</div>
+    {% endfor %}
+    <h5>Add Note:</h5>
+    <form action="post" method="post">
+        {% csrf_token %}
+        <textarea name="content" cols="40" rows="5"></textarea>
+        <input type="submit" value="Post It!">
+    </form>
+        
+</body>
